@@ -1,32 +1,34 @@
-name: aws_s3
+name: aws_s3_upload
 description: A simple, convenient package for uploading to S3.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/cookooteam/aws_s3_upload
+repository: https://github.com/cookooteam/aws_s3_upload
+issue_tracker: https://github.com/cookooteam/aws_s3_upload/issues
 
 # aws mediaconvert import
-
 protocol: rest-json
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.32.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  amazon_cognito_identity_dart_2: ^1.0.3
-  http: ^0.13.3
-  path: ^1.8.0
-  # aws mediaconvert import
-  shared_aws_api: ^1.2.0
+  # Keep Cognito helper (latest on pub.dev)
+  amazon_cognito_identity_dart_2: ^3.8.1
+  path: ^1.9.1
+  shared_aws_api: ^2.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  # Latest recommended lint set (requires Flutter 3.32/Dart 3.8)
+  flutter_lints: ^6.0.0
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+dependency_overrides:
+  # Ensure newest HTTP across transitive deps (e.g., shared_aws_api)
+  http: ^1.5.0
 
-# The following section is specific to Flutter.
 flutter:

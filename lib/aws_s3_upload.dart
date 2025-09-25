@@ -2,7 +2,7 @@ library aws_s3_upload;
 
 import 'dart:io';
 import 'package:amazon_cognito_identity_dart_2/sig_v4.dart';
-import 'package:aws_s3/src/utils.dart';
+import 'package:aws_s3_upload/src/utils.dart';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart' as path;
 
@@ -72,11 +72,14 @@ class AwsS3 {
     try {
       final res = await req.send();
 
-      if (res.statusCode == 204) return '$endpoint/$uploadDest';
+      if (res.statusCode == 204 ||
+          res.statusCode == 200 ||
+          res.statusCode == 201) return '$endpoint/$uploadDest';
     } catch (e) {
       print('Failed to upload to AWS, with exception:');
       print(e);
       return null;
     }
+    return null;
   }
 }

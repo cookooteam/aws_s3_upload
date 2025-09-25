@@ -1,4 +1,4 @@
-import 'package:aws_s3/enum/acl.dart';
+import 'package:aws_s3_upload/enum/acl.dart';
 
 String aclToString(ACL acl) {
   switch (acl) {
